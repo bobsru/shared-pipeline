@@ -3,6 +3,7 @@ def call() {
     agent any
     tools {
         jdk 'jdk8'
+        scannerHome 'sonar-scanner'
     }
     environment{
         server = null
@@ -47,7 +48,7 @@ def call() {
         }
       stage ('Sonar Analysis') {
             steps {
-                scannerHome = tool 'sonar-scanner'
+                
                 withSonarQubeEnv('local-sonarqube') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
