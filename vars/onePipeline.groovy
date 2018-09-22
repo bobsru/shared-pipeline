@@ -9,7 +9,6 @@ def call() {
         server = null
         rtMaven = null
         buildInfo = null
-        scannerHome = null
         scannerHome = tool 'sonar-scanner'
     }
     stages {
