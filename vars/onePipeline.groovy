@@ -3,13 +3,14 @@ def call() {
     agent any
     tools {
         jdk 'jdk8'
-        scannerHome 'sonar-scanner'
+        
     }
     environment{
         server = null
         rtMaven = null
         buildInfo = null
         scannerHome = null
+        scannerHome = tool 'sonar-scanner'
     }
     stages {
         stage ('Initialize') {
