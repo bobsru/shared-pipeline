@@ -8,6 +8,7 @@ def call() {
         server = null
         rtMaven = null
         buildInfo = null
+        scannerHome = null
     }
     stages {
         stage ('Initialize') {
@@ -46,7 +47,7 @@ def call() {
         }
       stage ('Sonar Analysis') {
             steps {
-                def scannerHome = tool 'sonar-scanner'
+                scannerHome = tool 'sonar-scanner'
                 withSonarQubeEnv('local-sonarqube') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
