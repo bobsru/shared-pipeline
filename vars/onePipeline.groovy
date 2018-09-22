@@ -44,6 +44,14 @@ def call() {
                 }
             }
         }
+      stage ('Sonar Analysis') {
+            steps {
+                def scannerHome = tool 'sonar-scanner'
+                withSonarQubeEnv('local-sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
         stage('Publish'){
             steps{
                 script{
